@@ -71,13 +71,13 @@ fun ButtonAppTheme(
 }
 
 @Composable
-fun DebugButtonColors() = ButtonDefaults.buttonColors(containerColor = DarkGreen)
+fun IButtonColors() = ButtonDefaults.buttonColors(containerColor = DarkRed)
 
 @Composable
-fun InfoButtonColors() = ButtonDefaults.buttonColors(containerColor = DarkBlue)
+fun RButtonColors() = ButtonDefaults.buttonColors(containerColor = DarkOrange)
 
 @Composable
-fun WarningButtonColors() = ButtonDefaults.buttonColors(containerColor = DarkOrange)
+fun BButtonColors() = ButtonDefaults.buttonColors(containerColor = DarkGreen)
 
 @Composable
-fun ErrorButtonColors() = ButtonDefaults.buttonColors(containerColor = DarkRed)
+fun MBButtonColors() = ButtonDefaults.buttonColors(containerColor = DarkBlue)

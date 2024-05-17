@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ButtonApp</string>
+    <string name="string_logo_etec">Logo Etec da Zona Leste</string>
+    <string name="string_titulo_pam">Atividade PAM II</string>
 </resources>
