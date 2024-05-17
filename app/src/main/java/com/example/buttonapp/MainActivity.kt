@@ -16,14 +16,20 @@ import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -57,7 +63,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ActionButton(
     text: String,
-    textColor: Color,
+    color: Color,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(),
     modifier: Modifier = Modifier,
     block: () -> Unit
@@ -70,6 +76,18 @@ fun ActionButton(
     ){
         Text(text = text)
     }
+}
+
+@Composable
+fun TextField() {
+    var text by rememberSaveable { mutableStateOf("") }
+
+    OutlinedTextField(
+        value = text,
+        onValueChange = { text = it },
+        label = { Text("Nome do Aluno: ") },
+        textStyle = TextStyle(color = Color.Black)
+    )
 }
 
 @Composable
@@ -94,9 +112,11 @@ private fun App(){
                 fontSize = 24.sp
             )
 
+            TextField()
+
             ActionButton(
                 text = "I",
-                textColor = Color.White,
+                color = Color.White,
                 buttonColors = IButtonColors(),
                 modifier = Modifier.fillMaxWidth(0.5f)
             ){
@@ -106,7 +126,7 @@ private fun App(){
 
             ActionButton(
                 text = "R",
-                textColor = Color.White,
+                color = Color.White,
                 buttonColors = RButtonColors(),
                 modifier = Modifier.fillMaxWidth(0.5f)
             ){
@@ -116,7 +136,7 @@ private fun App(){
 
             ActionButton(
                 text = "B",
-                textColor = Color.White,
+                color = Color.White,
                 buttonColors = BButtonColors(),
                 modifier = Modifier.fillMaxWidth(0.5f)
             ){
@@ -126,7 +146,7 @@ private fun App(){
 
             ActionButton(
                 text = "MB",
-                textColor = Color.White,
+                color = Color.White,
                 buttonColors = MBButtonColors(),
                 modifier = Modifier.fillMaxWidth(0.5f)
             ){
